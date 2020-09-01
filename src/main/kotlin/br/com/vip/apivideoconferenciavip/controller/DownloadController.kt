@@ -35,7 +35,9 @@ class DownloadController(val conferenceRepository: ConferenceRepository) {
             }
             get()
         }
-        val file = File("${conference.folder}/${conference.record}")
+        val pathToRecords = "/root/.jitsi-meet-cfg/jibri/recordings/"
+        val folder = conference.folder.split("/")[3]
+        val file = File(pathToRecords + folder + "/" +  conference.record)
         if (!file.exists()){
             println("Arquivo nao encontrado! ${file.absolutePath}")
             return ResponseEntity.notFound().build()
