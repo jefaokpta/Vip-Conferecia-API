@@ -12,7 +12,8 @@ import javax.persistence.*
 data class Conference(
                 val url: String,
                 val record: String,
-                val folder: String
+                val folder: String,
+                val recordSize: Long
 ) {
         @Id
         @GeneratedValue(generator = "uuid2")
